@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://yeison123:yeison123@cluster0-j2sna.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "devappsecret",
+  "githubClientID": "edc912d17710fc96aa53",
+  "githubSecret": "d9fbac2d36da5beb0736a3b84a81567772925a55"
+}
