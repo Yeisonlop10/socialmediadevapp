@@ -9,7 +9,7 @@ const Profile = require('../../models/Profile');
 // Bring the model
 const User = require('../../models/User');
 // Bring Express-validator
-const { check, validationResult } = require('express-validator/check')
+const { check, validationResult } = require('express-validator');
 // Bring request
 const request = require('request');
 // Bring config
