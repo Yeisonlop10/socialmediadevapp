@@ -3,7 +3,7 @@ const express = require('express');
 // Bring express router
 const router = express.Router();
 // Bring Check, validationresult - express validator
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 // Bring the User schema
 const User = require('../../models/User');
 // Bring gravatar package

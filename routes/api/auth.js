@@ -7,7 +7,7 @@ const auth = require('../../middleware/auth');
 // Bring user
 const User = require('../../models/User');
 // Bring Check, validationresult - express validator
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 // Bring config
 const config = require('config');
 // Bring JWT

@@ -9,7 +9,7 @@ const Profile = require('../../models/Profile');
 // Bring the model
 const User = require('../../models/User');
 // Bring Express-validator
-const { check, validationResult } = require('express-validator/check')
+const { check, validationResult } = require('express-validator');
 // Bring request
 const request = require('request');
 // Bring config
@@ -29,9 +29,7 @@ router.get('/me', auth, async (req, res) => {
     // Take profile model and use findOne by user req.user.id
     //It will use the Profile.js and use the user id that comes with the token
     // Using populate() we are adding the user name and avatar from user model, not from profile model
-    const profile = await Profile.findOne({
-      user: req.user.id
-    }).populate('user', ['name', 'avatar']);
+    const profile = await Profile.findOne({user: req.user.id}).populate('user', ['name', 'avatar']);
     // If there is no profile
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });

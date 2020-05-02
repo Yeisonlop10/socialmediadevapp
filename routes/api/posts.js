@@ -3,7 +3,7 @@ const express = require('express');
 // Bring express router
 const router = express.Router();
 // Bring check
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 // Bring auth
 const auth = require('../../middleware/auth');
 // Bring the users
