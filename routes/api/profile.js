@@ -8,6 +8,8 @@ const auth = require('../../middleware/auth');
 const Profile = require('../../models/Profile');
 // Bring the model
 const User = require('../../models/User');
+// Bring the Post model
+const Post = require('../../models/Post');
 // Bring Express-validator
 const { check, validationResult } = require('express-validator');
 // Bring request
@@ -168,7 +170,7 @@ router.get('/user/:user_id', async (req,res) => {
 router.delete('/', auth, async (req,res) => {
   try {
     // Remove users posts
-    
+    await Post.deleteMany({ user: req.user.id });
     // Remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user

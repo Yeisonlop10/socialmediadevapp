@@ -2,18 +2,20 @@
 const express = require('express');
 // Bring express router
 const router = express.Router();
-// Bring auth
-const auth = require('../../middleware/auth');
-// Bring user
-const User = require('../../models/User');
-// Bring Check, validationresult - express validator
-const { check, validationResult } = require('express-validator');
-// Bring config
-const config = require('config');
-// Bring JWT
-const jwt = require('jsonwebtoken');
 // Bring bcrypt
 const bcrypt = require('bcryptjs');
+// Bring auth
+const auth = require('../../middleware/auth');
+// Bring JWT
+const jwt = require('jsonwebtoken');
+// Bring config
+const config = require('config');
+// Bring Check, validationresult - express validator
+const { check, validationResult } = require('express-validator');
+
+
+// Bring user
+const User = require('../../models/User');
 
 // Route info:   GET api/auth
 // Description:  Test route. The call back is a req,res arrow function
@@ -25,7 +27,7 @@ router.get('/', auth, async (req, res) => {
     res.json(user);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send('Server Error');
   }
 });
 // Route info: POST api/auth
@@ -83,7 +85,7 @@ router.post(
       jwt.sign(
         payload,
         config.get('jwtSecret'),
-        { expiresIn: 36000 }, //options to expire
+        { expiresIn: 360000 }, //options to expire
         // Handle error
         (err, token) => {
           if (err) throw err;
