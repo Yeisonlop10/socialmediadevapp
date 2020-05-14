@@ -12,7 +12,7 @@ const app = express();
 connectDB();
 
 // Initialize the middleware
-app.use(express.json({ extended: false }));
+app.use(express.json());
 // Create a singlepoint to test out
 // take a get request to / and the respond will send data to the
 // browser API Running
@@ -25,14 +25,14 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
 // Server static assets in production
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
     // Set static folder. We set the build folder as the static folder
     app.use(express.static('client/build'));
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
+      });
+    }
 
 
 //Take that app variable to listen the port and look for an environment variable called PORT to get the port number. Locally define the port for example 5000
