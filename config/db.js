@@ -9,20 +9,20 @@ const db = config.get('mongoURI');
 // the regular promises for updated standar and cleaner process
 // So we create an arrow function with try and catch for error handling
 const connectDB = async () => {
-  try {
+	try {
     // mongoose.connect returns a promise
     await mongoose.connect(db, {
-      useNewUrlParser: true,
+			useNewUrlParser: true,
 			useCreateIndex: true,
 			useFindAndModify: false,
 			useUnifiedTopology: true
-    });
+		});
     console.log('MongoDB Connected...');
   } catch (err) {
     // If error, send an error message
     console.error(err.message);
-    // Exit process with failure
-    process.exit(1);
+		// Exit process with failure
+		process.exit(1);
   }
 };
 
